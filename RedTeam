@@ -1,0 +1,36 @@
+import tkinter as tk
+import random
+import subprocess
+import time
+
+def change_ip():
+    # Burada IP adresini değiştirecek kodu ekleyin (select_random_ip.py kodunu burada kullanabilirsiniz)
+    pass
+
+def start_red_team():
+    # RedTeam başlatma düğmesini etkisizleştir
+    start_button.config(state=tk.DISABLED)
+    
+    # Yükleniyor animasyonunu göster
+    loading_label.config(text="Yükleniyor...", font=("Helvetica", 12))
+    loading_label.update()
+    
+    # IP adresini her 1 dakikada bir değiştir
+    while True:
+        change_ip()
+        time.sleep(60)  # Her 60 saniyede bir IP adresini değiştir
+
+# Tkinter penceresini oluşturun
+window = tk.Tk()
+window.title("RedTeam Programı")
+
+# RedTeam başlatma düğmesini oluşturun
+start_button = tk.Button(window, text="RedTeam Başlat", command=start_red_team)
+start_button.pack()
+
+# Yükleniyor animasyonunu oluşturun
+loading_label = tk.Label(window, text="", font=("Helvetica", 12))
+loading_label.pack()
+
+# GUI'yi çalıştırın
+window.mainloop()
